@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title%}
+    Haberler Listesi
+{% endblock %}
+    {% block content %}
+        <h2>     haber sayısı                {{ haber_sayisi }}</h2>
+
+        {% for haber in haberler %}
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" width="200" height="200" src="{{ haber.thumbnail_url  }}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ haber.title  }}</h5>
+                     <!-- <p class="card-text">{{ haber.description|truncatewords:10  }}</p> -->
+                      <a href="{{ haber.link  }} " target="_blank" class="btn btn-primary ">Kaynağa Git </a>
+                    </div>
+                     <div class="card-footer">
+
+                      <small class="text-muted">{{ haber.pubDate   }}</small>
+                    </div>
+                </div>
+            </div>
+
+
+    {% endfor %}
+{% endblock %}
