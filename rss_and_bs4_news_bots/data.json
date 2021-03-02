@@ -123,8 +123,8 @@
   {
     "name": "aa-ekonomi",
     "rss": "https://www.aa.com.tr/tr/rss/default?cat=ekonomi",
-    "category": "genel",
-    "subcategory": "genel",
+    "category": "ekonomi",
+    "subcategory": "ekonomi",
     "time_code": 0,
     "field_code": 0
   },

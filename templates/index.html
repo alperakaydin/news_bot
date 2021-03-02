@@ -3,21 +3,26 @@
     Haberler Listesi
 {% endblock %}
     {% block content %}
-        <h2>     haber sayısı                {{ haber_sayisi }}</h2>
-
         {% for haber in haberler %}
-            <div class="col-md-3">
-                <div class="card">
-                    <img class="card-img-top" width="200" height="200" src="{{ haber.thumbnail_url  }}" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ haber.title  }}</h5>
-                     <!-- <p class="card-text">{{ haber.description|truncatewords:10  }}</p> -->
-                      <a href="{{ haber.link  }} " target="_blank" class="btn btn-primary ">Kaynağa Git </a>
-                    </div>
-                     <div class="card-footer">
+            <div class="col-md-2 align-content-around flex-wrap " id="{{ haber.category }}">
+                <div class="card " >
 
-                      <small class="text-muted">{{ haber.pubDate   }}</small>
+                        <img class="card-img-top" width="200" height="150" src="{{ haber.thumbnail_url  }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 style="color: #bd2130">{{ haber.category }}</h4>
+                                <h5 class="card-title">{{ haber.title }}</h5>
+                                 <!-- <p class="card-text">{{ haber.description|truncatewords:10  }}</p> -->
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <a href="{{ haber.link  }} " target="_blank" class="btn btn-outline-primary btn-sm ">Kaynağa Git </a>
+                                    <button class="btn btn-outline-danger btn-sm" type="button" id="haber-gonder" data-id="{{ haber.id }}" >Haber gonder </button>
+                                </div>
+                            </div>
+                        <div class="card-footer ">
+
+                        <small class="text-muted">{{ haber.pubDate   }}</small>
                     </div>
+
+
                 </div>
             </div>
 

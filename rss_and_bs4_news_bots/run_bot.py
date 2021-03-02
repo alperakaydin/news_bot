@@ -1,10 +1,9 @@
 from rss_and_bs4_news_bots.rss_bots.rss_test import *
-import schedule
-import time
 import json
-
+import os
 def run_rss_schedular():
-    rss_data = json.load(open("data.json", "r", encoding="utf-8"))
+    path = os.path.join(os.path.join(BASE_DIR ,'rss_and_bs4_news_bots'),'data.json')
+    rss_data = json.load(open(path , "r", encoding="utf-8"))
     for item in rss_data:
         print(type(item))
         print(item["name"],"   Kaynağından haberler alınıyor")
@@ -16,13 +15,13 @@ def run_rss_schedular():
 #if __name__ == "__main__":
     #run_rss_schedular(1,1)
 
-while True:
+"""while True:
     run_rss_schedular()
     print("Program UYUYOR :) ")
     time.sleep(120)
-
-"""if __name__ == "__main__":
-    print(BASE_DIR)
-    rss_data = json.load(open("data.json", "r", encoding="utf-8"))
-    for item in rss_data:
-        print(item["rss"])"""
+"""
+if __name__ == "__main__":
+    path = os.path.join(os.path.join(BASE_DIR ,'rss_and_bs4_news_bots'),'data.json')
+    print(path)
+    rss_data = json.load(open(path, "r", encoding="utf-8"))
+    print(rss_data)

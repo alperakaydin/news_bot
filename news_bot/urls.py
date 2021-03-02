@@ -21,6 +21,8 @@ from news.views import indexpage
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('news/', include('news.urls')),
+    #path('accounts/',include('account.urls')),
+    path('',include('account.urls')),
 ]
 if settings.DEBUG:
     urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

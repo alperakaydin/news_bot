@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 class news(models.Model):
     source = models.CharField(max_length=200, verbose_name="Kaynak", blank="",null=True)
     title = models.CharField(max_length=200, verbose_name="Başlık",null=True)
@@ -11,4 +11,4 @@ class news(models.Model):
     thumbnail_url = models.URLField( verbose_name="Resim Link", blank="",null=True)
     is_favorite = models.BooleanField(blank=False, verbose_name="Favori",null=True)
     is_select = models.BooleanField(blank=False, verbose_name="Seç",null=True)
-
+    user = models.ManyToManyField(User,related_name='users',related_query_name='haber')

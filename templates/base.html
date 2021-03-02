@@ -8,7 +8,11 @@
 </head>
 <body>
 {% include 'header.html' %}
-<h1>oha ajax</h1>
+
+
+                {% block body %}
+
+                {% endblock %}
     <main role="main">
      <!--    <div class="container">
          <div class="row">
@@ -27,10 +31,10 @@
 
 
 {% include 'footer.html' %}
-<script src="{% static '/js/jquery-slim.min.js' %}"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script src="{% static 'js/custom.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script>
-        $("h1").text("jquery etkin");
-    </script>
+
 </body>
 </html>

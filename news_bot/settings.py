@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news',
     'rss_and_bs4',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -122,4 +123,6 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+print(BASE_DIR)
+print(STATIC_ROOT)
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
