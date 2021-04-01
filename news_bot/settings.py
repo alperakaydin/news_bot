@@ -16,6 +16,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+print(BASE_DIR,"--setting django--")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -27,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+DENEME = False
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'news',
-    'rss_and_bs4',
-    'account',
+
+    'news.apps.NewsConfig',
+    'authentication',
+    'dashboard',
+
 ]
 
 MIDDLEWARE = [
@@ -126,3 +130,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 print(BASE_DIR)
 print(STATIC_ROOT)
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+
+# APSCHEDULAR SETTİNGS
+
+APSCHEDULER_RUN_NOW_TIMEOUT = 60# Seconds

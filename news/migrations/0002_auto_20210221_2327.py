@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='news',
-            name='is_select',
+            name='is_admin',
             field=models.BooleanField(null=True, verbose_name='Seç'),
         ),
         migrations.AlterField(

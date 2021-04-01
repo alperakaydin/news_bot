@@ -1,0 +1,76 @@
+{% extends 'news/base.html' %}
+{% block title%}
+    Haberler Listesi
+{% endblock %}
+    {% block content %}
+
+        {% for haber in haberler %}
+            <div class="col-md-2 mt-3" id="{{ haber.category }}">
+                <div class="card h-100 "  >
+
+                    <img class="card-img-top " width="220" height="150" src="{{ haber.thumbnail_url  }}" alt="Card image cap">
+                    <div class="card-body d-flex align-content-between flex-wrap p-0">
+                        <div class="container  ">
+                            <h6 style="color: #4e555b">{{ haber.source|capfirst }}</h6>
+                            <h4 style="color: #bd2130">{{ haber.category |capfirst }}</h4>
+                            <h5 class="card-title mt-3">{{ haber.title }}</h5>
+                            <!-- <p class="card-text">{{ haber.description|truncatewords:10  }}</p> -->
+
+                        </div>
+
+                        <div class="btn-group d-flex align-content-between flex-wrap" role="group" aria-label="Basic example">
+                            {% if selected %}
+                               <div>
+                                    <a href="{{ haber.link  }} " target="_blank" class="btn btn-outline-primary btn-sm ">Kaynağa Git </a>
+                                    <button type="button" class="btn btn-outline-danger btn-sm selected-button-cikar"  data-id="{{ haber.id }}" >Çıkar!</button>
+                                </div>
+                                <div class="mt-1">
+                                    <a href="https://www.aa.com.tr/tr/search/?s={{ haber.title  }}" target="_blank" class="btn btn-outline-primary btn-sm ">'AA'da Ara </a>
+                                    <a href="https://www.google.com/search?q={{ haber.title  }}&tbs=qdr:d,sbd:1&tbm=nws&source=lnt&sa=X&ved=0ahUKEwiWkJKTn5bvAhUBkMMKHdIXDUYQpwUIKA&biw=1536&bih=731&dpr=1.25" target="_blank" class="btn btn-outline-primary btn-sm ">Google'la </a>
+                                </div>
+
+
+                            {% else %}
+                                {% if is_yonetici %}
+
+                                    <div>
+                                        <a href="{{ haber.link  }} " target="_blank" class="btn btn-outline-primary btn-sm ">Kaynağa Git </a>
+{#                                        <button type="button"  class="btn btn-outline-success btn-sm haber-sec"  data-id="{{ haber.id }}" >Haberi Seç </button>#}
+
+                                        {# Yönetici için haber gönderme butonu  #}
+                                        <div class="dropdown show">
+                                          <a class="btn w-100 mt-1 btn-sm btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Gönder
+                                          </a>
+
+                                          <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuLink">
+
+                                              {% for user in users_in_group %}
+                                                    <button class="dropdown-item" type="button" news-id="{{ haber.id }}"  user-username="{{ user }}" href="#">{{ user }}</button>
+                                                {% endfor %}
+
+                                          </div>
+                                        </div>
+
+
+                                    </div>
+                                {% else %}
+                                    <div>
+                                        <a href="{{ haber.link  }} " target="_blank" class="btn btn-outline-primary btn-sm ">Kaynağa Git </a>
+                                        <button type="button"  class="btn btn-outline-success btn-sm haber-sec"  data-id="{{ haber.id }}" >Haberi Seç </button>
+
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+
+                         </div>
+                    <div class="card-footer ">
+                        <small class="text-muted">{{ haber.pubDate   }}</small>
+                    </div>
+                </div>
+            </div>
+
+
+    {% endfor %}
+{% endblock %}

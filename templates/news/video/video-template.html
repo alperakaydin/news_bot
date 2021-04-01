@@ -1,0 +1,14 @@
+{% extends 'news/base.html' %}
+{% block title%}
+    {{ queryset.category }} - Video
+{% endblock %}
+{% block content %}
+
+{#    <rssapp-wall id="_qvkLk1R61HbJMW3L"></rssapp-wall><script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>#}
+
+    {% if queryset.javascript_content %}
+        {{ queryset.javascript_content | safe }}
+
+    {% endif %}
+
+{% endblock %}

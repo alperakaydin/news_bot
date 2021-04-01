@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Hover-table ] start -->
+    <div class="col-xl-11 m-auto ">
+
+            <div class="card-block table-border-style mt-5">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Resim</th>
+                                <th>Başlık</th>
+                                <th>Editör</th>
+                                <th>Saat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if queryset %}
+                                {% for query in queryset %}
+{#                                    <h3>{{ query.user.get }}</h3>#}
+                                    <tr>
+                                        <th scope="row"><img src="{{ query.thumbnail_url }}" width="160" height="90"></th>
+                                        <td class="font-weight-bold text f-17"  >{{ query.title | truncatewords:8 }}</td>
+                                        <td class="font-weight-bold" >{{ query.user.get   }}</td>
+                                        <td class="font-weight-bold" >{{ query.pubDate | timesince }}</td>
+
+                                    </tr>
+
+                                {% endfor %}
+
+                            {% endif %}
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ Hover-table ] end -->
+
+
+
+{% endblock %}
