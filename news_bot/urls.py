@@ -22,7 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('news/', include('news.urls')),
     #path('accounts/',include('account.urls')),
-    path('',include('account.urls')),
+    #path('',include('account.urls')),
+    path("", include("authentication.urls")), # Auth routes - login / register
+    path('dashboard/', include("dashboard.urls")),
+    path("unicorn/", include("django_unicorn.urls")),
 ]
 if settings.DEBUG:
     urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

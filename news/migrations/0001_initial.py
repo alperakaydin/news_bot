@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('link', models.URLField(blank='', verbose_name='Haber Link')),
                 ('thumbnail_url', models.URLField(blank='', verbose_name='Resim Link')),
                 ('is_favorite', models.BooleanField(verbose_name='Favori')),
-                ('is_select', models.BooleanField(verbose_name='Seç')),
+                ('is_admin', models.BooleanField(verbose_name='Seç')),
             ],
         ),
     ]
